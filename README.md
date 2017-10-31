@@ -1,14 +1,14 @@
 # AggregateRecyclerAdapter
-Adapter with header, footer, multiple view, click and long click, managed with delegate methods.
+Adapter with header, footer, multiple views, click and long click, managed with delegate methods.
 
 ## Installation
-Download repository and copy class AggregateRecyclerAdapter.kt in your project.
+Download repository and copy AggregateRecyclerAdapter.kt class in your project.
 
 ## Usage
 Adapter is organized in sections and rows. Each section can contains rows and has an optional section header and footer.
-Headers, rows and footers can have different views, based on section and rows. They can also be configured and respind to click and long click.
+Headers, rows and footers can have different views, based on section and rows numbers. They can be configured and respond to click and long click.
 
-Firs create your model objects:
+First create your model objects:
 ``` kotlin
 val sections = listOf("Section 1", "Section 2", "Section 3")
 val rows = listOf("Row 1", "Row 2", "Row 3")
