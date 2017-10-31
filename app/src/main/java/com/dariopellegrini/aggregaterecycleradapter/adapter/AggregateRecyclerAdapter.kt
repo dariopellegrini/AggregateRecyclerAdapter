@@ -1,4 +1,4 @@
-package it.comixtime.comixtime.adapters
+package com.dariopellegrini.aggregaterecycleradapter.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
