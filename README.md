@@ -88,7 +88,7 @@ override fun numberOfItems(section: Int): Int {
     }
 
 // Layout id of each footer in a section
-    override fun inflateFooterID(section: Int): Int {
+    override fun inflateFooterID(section: Int): Int? {
         if (section == 0) {
             return R.layout.footer_start
         } else if (section == 1) {
