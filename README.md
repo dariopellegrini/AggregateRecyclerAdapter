@@ -5,7 +5,7 @@ Adapter with header, footer, multiple views, click and long click, managed with 
 Download repository and copy AggregateRecyclerAdapter.kt class in your project.
 
 ## Usage
-Adapter is organized in sections and rows. Each section can contains rows and has an optional section header and footer.
+Adapter is organized in sections and rows. Each section can contains rows and has optional header and footer.
 Headers, rows and footers can have different views, based on section and rows numbers. They can be configured and respond to click and long click.
 
 First create your model objects:
