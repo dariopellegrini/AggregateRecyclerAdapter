@@ -3,14 +3,18 @@ package com.dariopellegrini.aggregaterecycleradapter
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import com.dariopellegrini.aggregaterecycleradapter.adapter.AggregateRecyclerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.row.view.*
 
+
 class MainActivity : AppCompatActivity(), AggregateRecyclerAdapter.Listener {
+
+    override fun numberOfSections(): Int {
+        return sections.size
+    }
 
     override fun numberOfItems(section: Int): Int {
         return rows.size
@@ -26,7 +30,7 @@ class MainActivity : AppCompatActivity(), AggregateRecyclerAdapter.Listener {
         }
     }
 
-    override fun configure(itemType: Int, itemView: View, section: Int, row: Int) {
+    override fun configureRow(itemType: Int, itemView: View, section: Int, row: Int) {
         itemView.textView.text = rows[row]
     }
 
@@ -38,10 +42,6 @@ class MainActivity : AppCompatActivity(), AggregateRecyclerAdapter.Listener {
     override fun onRowLongClick(section: Int, row: Int) {
         super.onRowLongClick(section, row)
         Log.i("Row", "Long click ${rows[row]}")
-    }
-
-    override fun numberOfSections(): Int {
-        return sections.size
     }
 
     override fun inflateHeaderID(section: Int): Int? {
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity(), AggregateRecyclerAdapter.Listener {
         Log.i("Header", "Long click ${sections[section]}")
     }
 
-    override fun inflateFooterID(section: Int): Int {
+    override fun inflateFooterID(section: Int): Int? {
         if (section == 0) {
             return R.layout.footer_start
         } else if (section == 1) {
@@ -94,8 +94,8 @@ class MainActivity : AppCompatActivity(), AggregateRecyclerAdapter.Listener {
         Log.i("Footer", "Long click")
     }
 
-    var sections = listOf("Section 1", "Section 2", "Section 3")
-    var rows = listOf("Row 1", "Row 2", "Row 3")
+    val sections = listOf("Section 1", "Section 2", "Section 3")
+    val rows = listOf("Row 1", "Row 2", "Row 3")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

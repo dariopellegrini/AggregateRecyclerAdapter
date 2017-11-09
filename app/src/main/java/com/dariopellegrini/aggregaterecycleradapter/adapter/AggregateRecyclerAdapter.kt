@@ -27,7 +27,7 @@ open class AggregateRecyclerAdapter(private val delegate: Listener) : RecyclerVi
 
         fun onRowLongClick(section: Int, row: Int) {}
 
-        fun configure(itemType: Int, itemView: View, section: Int, row: Int)
+        fun configureRow(itemType: Int, itemView: View, section: Int, row: Int)
 
         // Header
         fun numberOfSections(): Int
@@ -66,7 +66,7 @@ open class AggregateRecyclerAdapter(private val delegate: Listener) : RecyclerVi
         val pair = getSectionAndRowFromPosition(position)
         when(list[position]) {
             CellType.header -> delegate.configureHeader(holder.itemViewType, holder.itemView, pair.first)
-            CellType.row -> delegate.configure(holder.itemViewType, holder.itemView, pair.first, pair.second)
+            CellType.row -> delegate.configureRow(holder.itemViewType, holder.itemView, pair.first, pair.second)
             CellType.footer -> delegate.configureFooter(holder.itemViewType, holder.itemView, pair.first)
         }
     }
